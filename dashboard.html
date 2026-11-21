@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="referrer" content="no-referrer">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f7f7f4">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Your space — Our Daily Journey</title>
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./css/styles.css">
+  <script src="https://cdn.counter.dev/script.js" data-id="29ffec70-02a0-4fd7-8bc3-4737bfdae1f0"
+    data-utcoffset="0"></script>
+</head>
+
+<body class="dashboard-page">
+  <header class="dashboard-header"><a class="brand" href="./index.html"><span class="brand-mark">✳</span><span>our daily
+        journey</span></a>
+    <nav class="dashboard-nav" id="dashboard-nav" aria-label="Account"><button class="nav-tab active" data-view="today"
+        type="button">Today</button><button class="nav-tab" data-view="insights" type="button">Insights</button><button
+        class="nav-tab" data-view="settings" type="button">Settings</button><button class="nav-tab" data-view="admin"
+        id="admin-nav-tab" data-admin-only type="button" hidden>Admin</button></nav>
+    <div class="account-area"><span class="account-name" id="account-name">Your space</span><button
+        class="avatar-button" id="account-menu" aria-label="Open account menu" type="button">?</button>
+      <div class="account-menu" id="account-menu-panel" hidden><button id="sign-out" type="button">Log out</button>
+      </div>
+    </div><button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Open navigation" aria-expanded="false"
+      type="button">☰</button>
+  </header>
+  <main class="dashboard-shell">
+    <div class="setup-banner" id="dashboard-setup" hidden></div>
+    <div class="dashboard-loading" id="dashboard-loading"><span class="loading-spinner"></span><span>Getting your space
+        ready…</span></div>
+    <div id="dashboard-content" hidden>
+      <section class="dashboard-view" id="view-today">
+        <div class="welcome-row">
+          <div><span class="eyebrow" id="today-date">YOUR SPACE</span>
+            <h1 id="welcome-title">One day at a time.</h1>
+            <p class="muted" id="welcome-subtitle">Your progress, shared with care.</p>
+          </div><button class="button button-dark" id="log-today-button" type="button">+ Log today</button>
+        </div>
+        <div class="invite-card" id="invite-card">
+          <div class="invite-icon">↗</div>
+          <div class="invite-copy"><strong>Your private space starts here.</strong><span>Create the space, then set up
+              the second member from Admin.</span></div><button class="button button-outline button-small"
+            id="create-space-button" type="button">Set up your space</button>
+        </div>
+        <div class="member-grid" id="member-grid"></div>
+        <section class="stats-grid today-shared-stats" id="today-shared-stats"
+          aria-label="Today's shared manually entered progress"></section>
+        <div class="content-grid">
+          <section class="panel daily-panel">
+            <div class="panel-heading">
+              <div><span class="eyebrow">TODAY'S CHECK-IN</span>
+                <h2>Your daily log</h2>
+              </div><button class="icon-button" id="edit-log-button" aria-label="Edit today's log"
+                type="button">＋</button>
+            </div>
+            <div id="log-summary" class="empty-state"><span class="empty-icon">✳</span><strong>A fresh page</strong>
+              <p>Add a little note about how today went.</p><button class="text-button" data-open-log type="button">Add
+                today's log <span aria-hidden="true">↗</span></button>
+            </div>
+            <div id="task-section" class="task-section">
+              <div class="task-heading">
+                <h3>Things to do</h3><button class="text-button" id="add-task-button" type="button">+ Add a
+                  task</button>
+              </div>
+              <ul class="task-list" id="task-list"></ul>
+              <p class="small-empty" id="task-empty">Nothing on the list yet. Add one small intention.</p>
+            </div>
+          </section>
+          <section class="panel notes-panel">
+            <div class="panel-heading">
+              <div><span class="eyebrow">A NOTE FOR BOTH OF YOU</span>
+                <h2>Shared notes</h2>
+              </div><span class="note-count" id="note-count">0</span>
+            </div>
+            <p class="panel-intro">A little encouragement, a thought to remember, or something worth celebrating.</p>
+            <form id="note-form" class="note-form"><label class="sr-only" for="note-input">Write a shared
+                note</label><textarea id="note-input" maxlength="500" rows="3"
+                placeholder="Write a note for your space…"></textarea>
+              <div class="note-form-footer"><span id="note-counter">0 / 500</span><button
+                  class="button button-dark button-small" type="submit">Post note</button></div>
+            </form>
+            <div id="notes-list" class="notes-list"></div>
+            <p class="small-empty" id="notes-empty">Your shared notes will appear here.</p>
+          </section>
+        </div>
+        <section class="panel activity-panel">
+          <div class="panel-heading">
+            <div><span class="eyebrow">YOUR PEOPLE</span>
+              <h2>Recent progress</h2>
+            </div><span class="manual-badge">MANUALLY ENTERED</span>
+          </div>
+          <div id="activity-list" class="activity-list"></div>
+          <p class="small-empty" id="activity-empty">When either of you logs a day, it will show up here.</p>
+        </section>
+      </section>
+      <section class="dashboard-view" id="view-insights" hidden>
+        <div class="welcome-row">
+          <div><span class="eyebrow">THE BIGGER PICTURE · SHARED</span>
+            <h1>Your progress, at a glance.</h1>
+            <p class="muted">Totals combine both members' manually entered logs, using your timezone's calendar dates.
+            </p>
+          </div>
+          <div class="range-toggle" role="group" aria-label="Statistics period"><button class="range-button active"
+              data-range="week" type="button">This week</button><button class="range-button" data-range="month"
+              type="button">This month</button></div>
+        </div>
+        <div class="stats-grid" id="stats-grid"></div>
+        <div class="content-grid insights-grid">
+          <section class="panel chart-panel">
+            <div class="panel-heading">
+              <div><span class="eyebrow">CONSISTENCY · BOTH MEMBERS</span>
+                <h2>Shared check-ins</h2>
+              </div><span class="manual-badge">MEMBERS PER DAY</span>
+            </div>
+            <div id="progress-chart" class="chart-wrap"></div>
+            <p class="field-hint">Each bar shows how many members logged that day.</p>
+          </section>
+          <section class="panel streak-panel">
+            <div class="panel-heading">
+              <div><span class="eyebrow">KEEP YOUR PACE</span>
+                <h2>Personal streaks</h2>
+              </div><span class="streak-flower">✳</span>
+            </div>
+            <p class="field-hint">Streaks are counted separately for each member.</p>
+            <div id="streak-content"></div>
+          </section>
+        </div>
+        <p class="disclaimer">All activity, sleep, steps, and exercise figures are entered by members. They are not
+          verified or measured by this app and are not medical advice.</p>
+      </section>
+      <section class="dashboard-view" id="view-settings" hidden>
+        <div class="welcome-row">
+          <div><span class="eyebrow">YOUR SPACE, YOUR CHOICES</span>
+            <h1>Settings</h1>
+            <p class="muted">Manage your profile, membership, and account.</p>
+            <p class="password-change-required" id="password-change-required" hidden>For your account security, change
+              the temporary password before continuing.</p>
+          </div>
+        </div>
+        <div class="settings-grid">
+          <section class="panel settings-panel"><span class="eyebrow">YOUR PROFILE</span>
+            <h2>A few details</h2>
+            <form id="profile-form" class="stacked-form"><label class="field-label" for="display-name">Display
+                name</label><input id="display-name" maxlength="60" autocomplete="name" required><label
+                class="field-label" for="timezone">Your timezone</label><select id="timezone"></select>
+              <p class="field-hint">We use this to decide which day your entries belong to.</p><button
+                class="button button-dark" type="submit">Save profile</button>
+            </form>
+          </section>
+          <section class="panel settings-panel"><span class="eyebrow">YOUR SIGN-IN</span>
+            <h2>Change your password</h2>
+            <p class="panel-intro">Use at least 12 characters with uppercase and lowercase letters, a number, and a
+              symbol.</p>
+            <form id="change-password-form" class="stacked-form"><label class="field-label" for="new-password">New
+                password</label><input id="new-password" type="password" autocomplete="new-password" minlength="12"
+                maxlength="128" required><label class="field-label" for="confirm-new-password">Confirm new
+                password</label><input id="confirm-new-password" type="password" autocomplete="new-password"
+                minlength="12" maxlength="128" required>
+              <p class="form-error" id="change-password-error" role="alert"></p><button class="button button-dark"
+                type="submit">Change password</button>
+            </form>
+          </section>
+          <section class="panel settings-panel"><span class="eyebrow">YOUR PRIVATE SPACE</span>
+            <h2 id="space-title">Your private space</h2>
+            <p class="panel-intro" id="space-description">A space is private to its two members. Each person controls
+              their own logs and tasks.</p>
+            <div id="space-actions"></div>
+          </section>
+          <section class="panel settings-panel privacy-panel"><span class="eyebrow">YOUR DATA</span>
+            <h2>Privacy & account</h2>
+            <p>Only you and your space member can see your shared space. You can delete your account and associated data
+              through account deletion instructions.</p><a class="text-link" href="./privacy.html">Read our privacy
+              notice ↗</a><a class="text-link" href="./privacy.html#account-deletion">Account deletion guide ↗</a>
+          </section>
+        </div>
+      </section>
+      <section class="dashboard-view" id="view-admin" data-admin-only hidden>
+        <div class="welcome-row">
+          <div><span class="eyebrow">ADMINISTRATOR</span>
+            <h1>Manage your two-person space.</h1>
+            <p class="muted">Create and reset the other member's account. Passwords are shown once and are never stored
+              by this site.</p>
+          </div>
+        </div>
+        <div class="admin-grid">
+          <section class="panel settings-panel"><span class="eyebrow">SECOND MEMBER</span>
+            <h2>Create an account</h2>
+            <p class="panel-intro">Choose a username and a strong temporary password. Share the password privately; the
+              member can change it after signing in.</p>
+            <form id="create-member-form" class="stacked-form"><label class="field-label"
+                for="member-username">Username</label><input id="member-username" autocomplete="off"
+                autocapitalize="none" spellcheck="false" minlength="3" maxlength="30" required
+                placeholder="e.g. sam_journey"><label class="field-label" for="member-temp-password">Temporary
+                password</label>
+              <div class="password-generate-row"><input id="member-temp-password" type="text"
+                  autocomplete="new-password" minlength="12" maxlength="128" required><button
+                  class="button button-outline button-small" id="generate-member-password"
+                  type="button">Generate</button></div><label class="field-label" for="member-confirm-password">Confirm
+                temporary password</label><input id="member-confirm-password" type="password"
+                autocomplete="new-password" minlength="12" maxlength="128" required>
+              <p class="form-error" id="create-member-error" role="alert"></p><button class="button button-dark"
+                id="create-member-submit" type="submit">Create member account</button>
+            </form>
+            <div class="credential-once" id="created-credentials" hidden aria-live="polite"><strong>Account created.
+                Share these details now.</strong>
+              <p>Username: <code id="created-username"></code></p>
+              <p>Temporary password: <code id="created-password"></code></p><button
+                class="button button-outline button-small" id="copy-created-password" type="button">Copy
+                password</button><button class="text-button" id="dismiss-created-password" type="button">Hide
+                password</button>
+            </div>
+          </section>
+          <section class="panel settings-panel"><span class="eyebrow">SPACE MEMBERS</span>
+            <h2>Member accounts</h2>
+            <p class="panel-intro">Only the administrator can create or reset the other account.</p>
+            <div id="admin-member-status" class="admin-status" role="status"></div>
+            <div id="admin-member-list" class="admin-member-list"></div>
+            <form id="reset-member-form" class="reset-member-form" hidden>
+              <h3>Set a temporary password</h3>
+              <p class="field-hint">For <strong id="reset-member-name"></strong>. The new password is shown once.</p>
+              <input id="reset-member-id" type="hidden"><label class="field-label" for="reset-temp-password">Temporary
+                password</label>
+              <div class="password-generate-row"><input id="reset-temp-password" type="text" autocomplete="new-password"
+                  minlength="12" maxlength="128" required><button class="button button-outline button-small"
+                  id="generate-reset-password" type="button">Generate</button></div><label class="field-label"
+                for="reset-confirm-password">Confirm temporary password</label><input id="reset-confirm-password"
+                type="password" autocomplete="new-password" minlength="12" maxlength="128" required>
+              <p class="form-error" id="reset-member-error" role="alert"></p><button
+                class="button button-dark button-small" type="submit">Reset password</button>
+              <div class="credential-once" id="reset-credentials" hidden aria-live="polite"><strong>Temporary password
+                  set. Share it now.</strong>
+                <p>Username: <code id="reset-result-username"></code></p>
+                <p>Temporary password: <code id="reset-result-password"></code></p><button
+                  class="button button-outline button-small" id="copy-reset-password" type="button">Copy
+                  password</button><button class="text-button" id="dismiss-reset-password" type="button">Hide
+                  password</button>
+              </div>
+            </form>
+          </section>
+        </div>
+      </section>
+    </div>
+  </main>
+  <dialog class="modal" id="log-modal">
+    <form id="log-form" method="dialog">
+      <div class="modal-heading">
+        <div><span class="eyebrow">A MOMENT FROM TODAY</span>
+          <h2 id="log-modal-title">Your daily log</h2>
+        </div><button class="modal-close" type="button" data-close-dialog aria-label="Close">×</button>
+      </div>
+      <p class="field-hint">Everything here is entered by you. Your space member can see it.</p><label
+        class="field-label" for="log-date">Day</label><input id="log-date" type="date" required><label
+        class="field-label" for="log-activity">A note about today <span
+          class="optional">optional</span></label><textarea id="log-activity" maxlength="1000" rows="3"
+        placeholder="What would you like to remember?"></textarea>
+      <div class="form-two-col">
+        <div><label class="field-label" for="log-sleep">Sleep <span class="optional">hours</span></label><input
+            id="log-sleep" type="number" min="0" max="24" step="0.25" inputmode="decimal" placeholder="e.g. 7.5"></div>
+        <div><label class="field-label" for="log-steps">Steps <span class="optional">manual count</span></label><input
+            id="log-steps" type="number" min="0" max="200000" step="1" inputmode="numeric" placeholder="e.g. 6200">
+        </div>
+        <div><label class="field-label" for="log-learning">Learning <span class="optional">minutes</span></label><input
+            id="log-learning" type="number" min="0" max="1440" step="1" inputmode="numeric" placeholder="e.g. 30"></div>
+        <div><label class="field-label" for="log-workout">Movement <span class="optional">minutes</span></label><input
+            id="log-workout" type="number" min="0" max="1440" step="1" inputmode="numeric" placeholder="e.g. 25"></div>
+      </div>
+      <p class="form-error" id="log-error" role="alert"></p>
+      <div class="modal-actions"><button class="button button-outline danger-button" id="delete-log-button"
+          type="button" hidden>Delete log</button><span class="modal-action-spacer"></span><button
+          class="button button-outline" type="button" data-close-dialog>Cancel</button><button
+          class="button button-dark" type="submit">Save log</button></div>
+    </form>
+  </dialog>
+  <dialog class="modal modal-compact" id="task-modal">
+    <form id="task-form" method="dialog">
+      <div class="modal-heading">
+        <div><span class="eyebrow">ONE SMALL INTENTION</span>
+          <h2>Add a task</h2>
+        </div><button class="modal-close" type="button" data-close-dialog aria-label="Close">×</button>
+      </div><label class="field-label" for="task-title">Task</label><input id="task-title" maxlength="160" required
+        placeholder="What would you like to do?">
+      <p class="form-error" id="task-error" role="alert"></p>
+      <div class="modal-actions"><button class="button button-outline" type="button"
+          data-close-dialog>Cancel</button><button class="button button-dark" type="submit">Add task</button></div>
+    </form>
+  </dialog>
+
+
+  <div class="toast-region" id="toast-region" aria-live="polite" aria-atomic="true"></div>
+  <script type="module" src="./js/dashboard.js"></script>
+</body>
+
+</html>

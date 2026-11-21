@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="referrer" content="no-referrer">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f7f7f4">
+    <title>Privacy — Our Daily Journey</title>
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body class="privacy-page">
+    <header class="site-header shell"><a class="brand" href="./index.html"><span class="brand-mark">✳</span><span>our
+                daily journey</span></a><a class="text-link" href="./index.html">← Back home</a></header>
+    <main class="privacy-content shell"><span class="eyebrow">A CLEAR PROMISE</span>
+        <h1>Your privacy matters.</h1>
+        <p class="privacy-lede">Our Daily Journey is built for a small, private circle: you and one other person you
+            choose.</p>
+        <h2>What the app stores</h2>
+        <p>Your username, optional display name, timezone, the progress you choose to enter, tasks, shared notes, and
+            the membership information needed to run your private space. Supabase Auth retains account identifiers;
+            the administrator's existing Auth email remains inside Supabase and is not shown by this website. Newly
+            created members do not provide an email address or phone number.</p>
+        <h2>Who can see your progress</h2>
+        <p>Only you and the other member of your space can read its logs, tasks, and notes. Your space member can see
+            entries you choose to save. Logs and tasks can only be changed or deleted by their creator. We do not sell
+            your information or use it for advertising.</p>
+        <h2>What this app does not collect</h2>
+        <p>There is no analytics, fingerprinting, location tracking, or collection of raw IP addresses in application
+            tables. This app does not access your camera, microphone, contacts, photos, health data, GPS, or device
+            files. Step counts and activity are manual entries; we cannot verify them.</p>
+        <h2>Service providers</h2>
+        <p>The app uses Supabase for authentication and database hosting, GitHub Pages for the static site, and
+            jsDelivr to deliver the Supabase JavaScript client. These providers receive standard network requests
+            when your browser loads or uses the app and may process connection information such as IP addresses under
+            their own policies. The application does not write raw IP addresses to its tables. Review each provider's
+            terms and privacy information.</p>
+        <h2 id="account-deletion">Retention and deletion</h2>
+        <p>Your entries remain until you or your space member removes them or your project administrator deletes the
+            account. To delete your account, contact the person who owns the Supabase project. They can open
+            Authentication → Users, select your account, and choose Delete user. Your profile, logs, tasks, notes,
+            membership, username mapping, and invitations are removed. If your space member remains, they become its owner; if no member
+            remains, the space is removed. Export anything you want to keep first.</p>
+        <h2>Security</h2>
+        <p>Browser configuration contains a public Supabase publishable key. It is not a secret. Database access is
+            restricted with row level security and server-side functions. Service or secret keys stay in Supabase's
+            server environment and are never placed in this site. Passwords are verified by Supabase Auth; the website
+            does not store password text or custom password hashes.</p>
+        <h2>Questions</h2>
+        <p>This is a self-hosted project. You control its Supabase and GitHub accounts. For privacy requests, contact
+            the project owner who configured your deployment.</p>
+        <p class="privacy-updated">Last updated: November 19, 2026</p>
+    </main>
+    <footer class="site-footer shell"><a class="brand" href="./index.html"><span class="brand-mark">✳</span><span>our
+                daily journey</span></a><span>Made for two, kept private.</span></footer>
+</body>
+
+</html>

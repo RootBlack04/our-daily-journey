@@ -1,0 +1,10 @@
+{
+  "name": "our-daily-journey",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "node --check js/shared.js && node --check js/supabase.js && node --check js/auth.js && node --check js/dashboard.js && node --check supabase/functions/_shared/http.ts && node --check supabase/functions/_shared/clients.ts && node --check supabase/functions/username-login/index.ts && node --check supabase/functions/admin-create-member/index.ts && node --check supabase/functions/admin-reset-member-password/index.ts && node --check supabase/functions/change-password/index.ts",
+    "test": "node --test"
+  }
+}

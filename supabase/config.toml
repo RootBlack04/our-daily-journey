@@ -1,0 +1,11 @@
+[functions.username-login]
+verify_jwt = false
+
+[functions.admin-create-member]
+verify_jwt = false
+
+[functions.admin-reset-member-password]
+verify_jwt = false
+
+[functions.change-password]
+verify_jwt = false
